@@ -47,7 +47,6 @@ async function run() {
         // update inventory items
         app.put('/inventories/:id', async(req, res) =>{
             const id = req.params.id;
-            
             const quentityUpdate = req.body;
             const filter = { _id:ObjectId(id) }
             const options = { upsert: true };
@@ -60,6 +59,22 @@ async function run() {
             res.send(result);
             
         })
+        
+        // 
+        // app.put('/inventories/:id', async(req, res) =>{
+        //     const id = req.params.id;
+        //     const quentityDecerement = req.body;
+        //     const filter = { _id:ObjectId(id) };
+        //     const options = { upsert: true };
+        //     const updateDoc = {
+        //         $set : {
+        //           quantity: quentityDecerement.updateNewQuetity,               
+        //         }
+        //     }
+        //     const result = await inventoriesCollection.updateOne(filter, updateDoc, options);
+        //     res.send(result);
+            
+        // })
 
 
         //post invenotry item
